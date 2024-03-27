@@ -1,0 +1,21 @@
+{
+  "Trash": {
+    "id": "1",
+    "title": "Take out the trash",
+    "description": "Weekly Wednesday Morning",
+    "due_date": "2024-03-27",
+    "recurrence": "weekly",
+    "day": "Wednesday",
+    "completed": false
+  },
+  
+  "Laundry": {
+    "id": "2",
+    "title": "Do the laundry",
+    "description": "Weekly Sunday Morning",
+    "due_date": "2024-03-31",
+    "recurrence": "weekly",
+    "day": "Sunday",
+    "completed": false
+  }
+}

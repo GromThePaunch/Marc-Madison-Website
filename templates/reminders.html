@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Reminders</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+    <div class="min-h-screen bg-gray-100 flex items-center justify-center">
+        <div class="max-w-md w-full space-y-8">
+            <!-- Close the h1 tag right after the title -->
+            <h1 class="mt-6 text-center text-3xl font-extrabold text-gray-900">Reminders</h1>
+            
+            <!-- Reminders list and form should be outside the h1 tag -->
+            <div id="reminders-list" class="text-center">
+                {% for reminder in reminders %}
+                <div>
+                    <!-- Use a different tag for titles within the list, like h2 or p, depending on your preference -->
+                    <h2 class="text-lg font-normal">{{ reminder.title }}</h2>
+                    <p>{{ reminder.description }}</p>
+                    <!-- Add more fields as necessary -->
+                </div>
+                {% endfor %}
+            </div>
+            <form id="reminder-form" action="/reminders" method="post" class="text-center">
+                <input type="text" id="title" name="title" placeholder="Title" required>
+                <input type="text" id="description" name="description" placeholder="Description" required>
+                <input type="date" id="due_date" name="due_date" required>
+                <input type="checkbox" id="isRecurring" name="isRecurring">
+                <label for="isRecurring">Recurring</label>
+                <button type="submit">Add Reminder</button>
+            </form>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>
